@@ -58,17 +58,17 @@ bool SerializarAlumno(char * cadena, size_t espacio, const alumno_t alumno) {
         "\"documento\":\"%s\","
         "\"apellidos\":\"%s\","
         "\"nombres\":\"%s\""
-    "}";
+    "}"; /**Formato de la cadena de caracteres con elementos de la estructura*/
 
     resultado = snprintf(cadena, espacio, FORMATO, 
-             alumno->documento, alumno->apellidos, alumno->nombres);
+             alumno->documento, alumno->apellidos, alumno->nombres); /**Almacenamiento de la cadena de caracteres según formato*/
 
     return (resultado >= 0);
 }
 
 bool SerializarAlumnos(char * cadena, size_t espacio) {
     static const int  cantidad = sizeof(ALUMNOS) / sizeof(alumno_t);
-    int posicion = snprintf(cadena, espacio, "[\r\n  ");
+    int posicion = snprintf(cadena, espacio, "[\r\n  "); /**Determinación de posición del alumno al obtener el número de bytes escritos*/
     bool resultado = (posicion > 0);
 
     if (resultado){
